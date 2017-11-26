@@ -1,7 +1,7 @@
 import moment from 'moment';
 import filtersReducer from '../../reducers/filters';
 
-test('should setup default filter values', () => {
+test('it should setup default filter values', () => {
   const state = filtersReducer(undefined, { type: '@@INIT' });
   expect(state).toEqual({
     text: '',
@@ -11,12 +11,12 @@ test('should setup default filter values', () => {
   });
 });
 
-test('should set sortBy to amount', () => {
+test('it should set sortBy to amount', () => {
   const state = filtersReducer(undefined, { type: 'SORT_BY_AMOUNT' });
   expect(state.sortBy).toBe('amount');
 });
 
-test('should set sortBy to date', () => {
+test('it should set sortBy to date', () => {
   const currentState = {
     text: '',
     startDate: undefined,
@@ -28,7 +28,7 @@ test('should set sortBy to date', () => {
   expect(state.sortBy).toBe('date');
 });
 
-test('should set text filter', () => {
+test('it should set text filter', () => {
   const text = 'This is my filter';
   const action = {
     type: 'SET_TEXT_FILTER',
@@ -38,7 +38,7 @@ test('should set text filter', () => {
   expect(state.text).toBe(text);
 });
 
-test('should set startDate filter', () => {
+test('it should set startDate filter', () => {
   const startDate = moment();
   const action = {
     type: 'SET_START_DATE',
@@ -48,7 +48,7 @@ test('should set startDate filter', () => {
   expect(state.startDate).toEqual(startDate);
 });
 
-test('should set endDate filter', () => {
+test('it should set endDate filter', () => {
   const endDate = moment();
   const action = {
     type: 'SET_END_DATE',
